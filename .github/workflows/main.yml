@@ -20,6 +20,15 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Install Build Tools 34.0.4
+        run: |
+          sdkmanager "platform-tools"
+          sdkmanager "platforms;android-34"
+          sdkmanager "build-tools;34.0.4"
+
       - name: Grant execute permission
         run: chmod +x gradlew
 
